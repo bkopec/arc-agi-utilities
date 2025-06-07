@@ -11,11 +11,11 @@ import {Task, TaskExample} from '../services/arc-agi-data';
   imports: [CommonModule, FormsModule],
   templateUrl: './task-viewer.html',
   styleUrls: ['./task-viewer.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush // <-- NEW: Tell Angular to only check on push or manual trigger
+  changeDetection: ChangeDetectionStrategy.OnPush 
 })
 export class TaskViewer implements OnInit {
   taskSets: TaskSets = {};
-  task: Task | null = null; // <-- CHANGED TYPE HERE to Task | null
+  task: Task | null = null; 
   availableSetNames: string[] = [];
   currentSetName: string = '';
   currentIndexMap: Map<string, number> = new Map();
@@ -23,8 +23,8 @@ export class TaskViewer implements OnInit {
   isLoading: boolean = true;
   error: string | null = null;
 
-  searchTerm: string = ''; // New: Binds to the search input
-  searchResult: string | null = null; // New: Displays search messages
+  searchTerm: string = ''; 
+  searchResult: string | null = null; 
 
   constructor(
     private arcAgiDataService: ArcAgiDataService,
@@ -59,11 +59,9 @@ export class TaskViewer implements OnInit {
     });
   }
 
-  /**
-   * New: Searches for a task ID across all available datasets.
-   */
+
   searchTask(): void {
-    this.searchResult = null; // Clear previous search result
+    this.searchResult = null; 
     const term = this.searchTerm.trim();
 
     if (!term) {
@@ -72,31 +70,31 @@ export class TaskViewer implements OnInit {
       return;
     }
 
-    // Ensure the term ends with .json if not already for robust matching
+
     const searchFileName = term.endsWith('.json') ? term : `${term}.json`;
 
     let found = false;
     for (const setName of this.availableSetNames) {
       const tasksInSet = this.taskSets[setName];
       if (tasksInSet) {
-        const index = tasksInSet.indexOf(searchFileName); // indexOf for exact match
+        const index = tasksInSet.indexOf(searchFileName);
         if (index !== -1) {
-          // Task found!
-          this.currentSetName = setName; // Switch to the set where it was found
-          this.currentIndexMap.set(setName, index); // Set the index to the found task
+
+          this.currentSetName = setName;
+          this.currentIndexMap.set(setName, index);
           this.searchResult = `Found '${searchFileName}' in set '${setName}'. Displaying now.`;
           found = true;
-          break; // Exit the loop once found
+          break;
         }
       }
     }
 
     if (found) {
-      this.updateCurrentTask(); // Update the displayed task
+      this.updateCurrentTask();
     } else {
       this.searchResult = `Task not found: '${searchFileName}' in any dataset.`;
     }
-    this.cdr.detectChanges(); // Trigger change detection to update UI
+    this.cdr.detectChanges();
   }
 
 
@@ -109,24 +107,22 @@ export class TaskViewer implements OnInit {
     } else {
       this.currentTask = null;
     }
-    this.cdr.detectChanges(); // Update UI for `this.currentTask`
+    this.cdr.detectChanges();
 
-    // Reset detailed task object while fetching new one
     this.task = null;
-    this.cdr.detectChanges(); // To clear previous task data from view quickly
+    this.cdr.detectChanges();
 
-    // Call service to get full task details (asynchronous)
     if (this.currentTask) {
       this.arcAgiDataService.getTask(this.currentTask).subscribe({
-        next: (data: Task) => { // <-- Explicitly type 'data' as Task
-          this.task = data; // Assign the detailed task object
-          this.cdr.detectChanges(); // Update UI after 'this.task' is updated by async call
+        next: (data: Task) => {
+          this.task = data;
+          this.cdr.detectChanges(); 
         },
         error: (err) => {
           console.error('Error fetching detailed task:', err);
-          // Handle error for detailed task fetch if needed
-          this.error = 'Failed to load task details.'; // Example error handling
-          this.cdr.detectChanges(); // Update UI for error
+
+          this.error = 'Failed to load task details.';
+          this.cdr.detectChanges();
         }
       });
     }

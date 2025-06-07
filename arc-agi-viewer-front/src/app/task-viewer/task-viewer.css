@@ -6,7 +6,7 @@
     border: 1px solid #444;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    background-color: #31363f; /* Container background, distinct from body */
+    background-color: #31363f;
     color: #abb2bf;
   }
   h1, h2 {
@@ -31,22 +31,22 @@
     padding: 15px;
     border: 1px solid #444;
     border-radius: 8px;
-    background-color: #3a3f4a; /* Distinct background for search area */
-    display: flex; /* Use flexbox for layout */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    justify-content: center; /* Center items */
-    align-items: center; /* Align items vertically */
-    gap: 10px; /* Space between elements */
+    background-color: #3a3f4a; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
   }
   .search-section input[type="text"] {
     padding: 8px 12px;
     border: 1px solid #555;
     border-radius: 5px;
-    background-color: #282c34; /* Input background */
-    color: #abb2bf; /* Input text color */
+    background-color: #282c34;
+    color: #abb2bf;
     font-size: 1rem;
-    flex-grow: 1; /* Allow input to grow */
-    max-width: 350px; /* Limit input width */
+    flex-grow: 1;
+    max-width: 350px;
   }
   .search-section button {
     padding: 8px 15px;
@@ -54,19 +54,19 @@
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #61afef; /* Search button color */
+    background-color: #61afef;
     color: #282c34;
     transition: background-color 0.3s ease;
   }
   .search-section button:hover {
-    background-color: #5390ce; /* Darker blue on hover */
+    background-color: #5390ce;
   }
   .search-result {
     margin-top: 10px;
     padding: 8px;
     border-radius: 4px;
     font-weight: bold;
-    width: 100%; /* Take full width below input/button */
+    width: 100%;
   }
   .search-result.success {
     background-color: #49515a;
@@ -144,12 +144,12 @@
     padding: 20px;
     border: 1px solid #444;
     border-radius: 8px;
-    background-color: #31363f; /* Slightly lighter dark background for this section */
+    background-color: #31363f;
     color: #abb2bf;
   }
   
   .grids-section h3, .grids-section h4 {
-    color: #61afef; /* Heading color */
+    color: #61afef;
     text-align: center;
     margin-bottom: 20px;
   }
@@ -166,13 +166,13 @@
     padding: 15px;
     border: 1px solid #555;
     border-radius: 8px;
-    background-color: #3a3f4a; /* Background for each example pair */
+    background-color: #3a3f4a;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     background-color:#111111;
   }
   
   .grid-example h5 {
-    color: #c678dd; /* A purple for example titles */
+    color: #c678dd;
     text-align: center;
     margin-bottom: 15px;
     margin-top:0px;
@@ -180,9 +180,9 @@
   
   .grid-pair {
     display: flex;
-    flex-wrap: wrap; /* Allow grids to wrap on smaller screens */
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* Space between input and output grids */
+    gap: 20px;
     overflow-x:auto;
     max-width:700px;
     margin:0 auto;
@@ -191,23 +191,23 @@
   .grid-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center the grid within its container */
+    align-items: center;
     margin-bottom: 10px;
     flex:1;
     width:48%;
   }
   
   .grid-container h6 {
-    color: #98c379; /* Green for "Input" / "Output" labels */
+    color: #98c379;
     margin-bottom: 10px;
     font-size: 1.1em;
   }
   
   .grid {
     display: grid;
-    border: 3px solid #555555; /* Grid border */
+    border: 3px solid #555555;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    background-color: #555555; /* Darker background for the grid itself */
+    background-color: #555555;
     gap:3px;
     width: 96%; 
   }
@@ -220,15 +220,14 @@
   h1, h2, h3, h4, h5, h6 {
     margin-top:0px;
 }
-  /* Color Strategy for Grid Cells (0-9) */
-  /* These colors are based on common ARC-AGI visualizations */
-  .cell-0 { background-color: #000000; } /* Dark background / black */
-  .cell-1 { background-color: #1E93FF; } /* Blue */
-  .cell-2 { background-color: #F93C31; } /* Red */
-  .cell-3 { background-color: #4FCC30; } /* Green */
-  .cell-4 { background-color: #FFDC00; } /* Yellow */
-  .cell-5 { background-color: #999999; } /* Purple */
-  .cell-6 { background-color: #F012BE; } /* Cyan */
-  .cell-7 { background-color: #FF851B; } /* Grey / White (default text color) */
-  .cell-8 { background-color: #87D8F1; } /* Orange */
-  .cell-9 { background-color: #921231; } /* Light Grey (distinct from 7 if needed) */
+  
+  .cell-0 { background-color: #000000; }
+  .cell-1 { background-color: #1E93FF; }
+  .cell-2 { background-color: #F93C31; }
+  .cell-3 { background-color: #4FCC30; }
+  .cell-4 { background-color: #FFDC00; }
+  .cell-5 { background-color: #999999; }
+  .cell-6 { background-color: #F012BE; }
+  .cell-7 { background-color: #FF851B; }
+  .cell-8 { background-color: #87D8F1; }
+  .cell-9 { background-color: #921231; }

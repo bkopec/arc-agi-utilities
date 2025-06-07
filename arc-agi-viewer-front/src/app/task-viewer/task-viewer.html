@@ -1,5 +1,3 @@
-<!-- src/app/task-viewer/task-viewer.html -->
-
 <div class="task-viewer-container">
     <h1>ARC-AGI Task Viewer</h1>
 
@@ -46,8 +44,8 @@
               <h6>Input</h6>
               <div class="grid"
                    [style.grid-template-columns]="getGridColumns(example.input)"
-                   [style.grid-template-rows]="getGridRows(example.input)"> <!-- Added grid-template-rows here -->
-                <ng-container *ngFor="let row of example.input"> <!-- CHANGE THIS TO <ng-container> -->
+                   [style.grid-template-rows]="getGridRows(example.input)">
+                <ng-container *ngFor="let row of example.input">
                   <div *ngFor="let cell of row"
                        class="grid-cell"
                        [ngClass]="'cell-' + cell"></div>
@@ -58,8 +56,8 @@
               <h6>Output</h6>
               <div class="grid"
                    [style.grid-template-columns]="getGridColumns(example.output)"
-                   [style.grid-template-rows]="getGridRows(example.output)"> <!-- Added grid-template-rows here -->
-                <ng-container *ngFor="let row of example.output"> <!-- CHANGE THIS TO <ng-container> -->
+                   [style.grid-template-rows]="getGridRows(example.output)">
+                <ng-container *ngFor="let row of example.output">
                   <div *ngFor="let cell of row"
                        class="grid-cell"
                        [ngClass]="'cell-' + cell"></div>
@@ -79,8 +77,8 @@
               <h6>Input</h6>
               <div class="grid"
                    [style.grid-template-columns]="getGridColumns(example.input)"
-                   [style.grid-template-rows]="getGridRows(example.input)"> <!-- Added grid-template-rows here -->
-                <ng-container *ngFor="let row of example.input"> <!-- CHANGE THIS TO <ng-container> -->
+                   [style.grid-template-rows]="getGridRows(example.input)">
+                <ng-container *ngFor="let row of example.input">
                   <div *ngFor="let cell of row"
                        class="grid-cell"
                        [ngClass]="'cell-' + cell"></div>
@@ -91,8 +89,8 @@
               <h6>Output (Hidden for Test)</h6>
               <div class="grid"
                    [style.grid-template-columns]="getGridColumns(example.output)"
-                   [style.grid-template-rows]="getGridRows(example.output)"> <!-- Added grid-template-rows here -->
-                <ng-container *ngFor="let row of example.output"> <!-- CHANGE THIS TO <ng-container> -->
+                   [style.grid-template-rows]="getGridRows(example.output)">
+                <ng-container *ngFor="let row of example.output">
                   <div *ngFor="let cell of row"
                        class="grid-cell"
                        [ngClass]="'cell-' + cell"></div>
