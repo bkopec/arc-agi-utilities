@@ -10,7 +10,7 @@ java -jar arc-agi-backend/target/arc-agi-backend-1.0.0.jar --server.port=9000
 
 ### Override CORS Allowed Origins:
 ```bash
-java -jar arc-agi-backend/target/arc-agi-backend-1.0.0.jar --app.cors.allowedOrigin=https://arcviewer.s2.bkopec.com,http://localhost:4200
+java -jar arc-agi-backend/target/arc-agi-backend-1.0.0.jar --app.cors.allowedOrigin=https://yourdomain.com,http://localhost:4200
 ```
 ## Angular Frontend
 
