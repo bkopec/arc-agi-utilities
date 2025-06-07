@@ -1,0 +1,109 @@
+<!-- src/app/task-viewer/task-viewer.html -->
+
+<div class="task-viewer-container">
+    <h1>ARC-AGI Task Viewer</h1>
+
+    <div class="search-section">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Enter Task ID (e.g., 007bbfb7.json)" />
+      <button (click)="searchTask()">Search</button>
+    </div>
+
+    <div *ngIf="isLoading" class="loading">Loading task sets...</div>
+    <div *ngIf="error" class="error">Error: {{ error }}</div>
+
+    <div *ngIf="!isLoading && !error && availableSetNames.length > 0">
+      <div class="controls">
+        <label for="taskSetSelector">Select Task Set:</label>
+        <select id="taskSetSelector" [(ngModel)]="currentSetName" (change)="onSetChange()">
+          <option *ngFor="let name of availableSetNames" [value]="name">{{ name }}</option>
+        </select>
+      </div>
+
+      <div class="task-navigation" *ngIf="currentTask">
+        <h2>Current Set: {{ currentSetName }} ({{ getCurrentTaskIndex() + 1 }} / {{ getCurrentSetLength() }})</h2>
+        <p class="current-task-display">Task ID: <strong>{{ currentTask }}</strong></p>
+
+        <div class="button-group">
+          <button (click)="prevTask()" [disabled]="getCurrentTaskIndex() === 0">Previous</button>
+          <button (click)="nextTask()" [disabled]="getCurrentTaskIndex() === getCurrentSetLength() - 1">Next</button>
+        </div>
+      </div>
+
+      <div *ngIf="!currentTask && currentSetName" class="no-tasks">
+        No tasks found in the selected set: {{ currentSetName }}.
+      </div>
+    </div>
+
+    <div *ngIf="task" class="grids-section">
+      <h3>Task Grids for {{ currentTask }}</h3>
+
+      <div class="train-grids">
+        <h4>Training Examples</h4>
+        <div *ngFor="let example of task.train; let i = index" class="grid-example">
+          <h5>Example {{ i + 1 }}</h5>
+          <div class="grid-pair">
+            <div class="grid-container">
+              <h6>Input</h6>
+              <div class="grid"
+                   [style.grid-template-columns]="getGridColumns(example.input)"
+                   [style.grid-template-rows]="getGridRows(example.input)"> <!-- Added grid-template-rows here -->
+                <ng-container *ngFor="let row of example.input"> <!-- CHANGE THIS TO <ng-container> -->
+                  <div *ngFor="let cell of row"
+                       class="grid-cell"
+                       [ngClass]="'cell-' + cell"></div>
+                </ng-container>
+              </div>
+            </div>
+            <div class="grid-container">
+              <h6>Output</h6>
+              <div class="grid"
+                   [style.grid-template-columns]="getGridColumns(example.output)"
+                   [style.grid-template-rows]="getGridRows(example.output)"> <!-- Added grid-template-rows here -->
+                <ng-container *ngFor="let row of example.output"> <!-- CHANGE THIS TO <ng-container> -->
+                  <div *ngFor="let cell of row"
+                       class="grid-cell"
+                       [ngClass]="'cell-' + cell"></div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="test-grids">
+        <h4>Test Examples</h4>
+        <div *ngFor="let example of task.test; let i = index" class="grid-example">
+          <h5>Example {{ i + 1 }}</h5>
+          <div class="grid-pair">
+            <div class="grid-container">
+              <h6>Input</h6>
+              <div class="grid"
+                   [style.grid-template-columns]="getGridColumns(example.input)"
+                   [style.grid-template-rows]="getGridRows(example.input)"> <!-- Added grid-template-rows here -->
+                <ng-container *ngFor="let row of example.input"> <!-- CHANGE THIS TO <ng-container> -->
+                  <div *ngFor="let cell of row"
+                       class="grid-cell"
+                       [ngClass]="'cell-' + cell"></div>
+                </ng-container>
+              </div>
+            </div>
+            <div class="grid-container">
+              <h6>Output (Hidden for Test)</h6>
+              <div class="grid"
+                   [style.grid-template-columns]="getGridColumns(example.output)"
+                   [style.grid-template-rows]="getGridRows(example.output)"> <!-- Added grid-template-rows here -->
+                <ng-container *ngFor="let row of example.output"> <!-- CHANGE THIS TO <ng-container> -->
+                  <div *ngFor="let cell of row"
+                       class="grid-cell"
+                       [ngClass]="'cell-' + cell"></div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!isLoading && !error && availableSetNames.length === 0" class="no-data">
+      No task sets loaded. Please check your backend.
+    </div>
+</div>

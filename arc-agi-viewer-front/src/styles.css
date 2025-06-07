@@ -1,0 +1,8 @@
+body {
+    margin: 0; /* Important: Remove default body margin */
+    padding: 0; /* Important: Remove default body padding */
+    background-color: #000000; /* The dark background color */
+    color: #abb2bf; /* Default text color for the entire body */
+    min-height: 100vh; /* Ensures the background covers the whole viewport height */
+    /* Add any other global body styles you need */
+  }

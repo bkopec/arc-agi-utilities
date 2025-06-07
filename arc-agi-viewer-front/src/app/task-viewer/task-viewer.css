@@ -1,0 +1,234 @@
+.task-viewer-container {
+    font-family: Arial, sans-serif;
+    max-width: 90vw;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    background-color: #31363f; /* Container background, distinct from body */
+    color: #abb2bf;
+  }
+  h1, h2 {
+    color: #61afef;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .loading, .error, .no-tasks, .no-data {
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  .loading { background-color: #3e4451; color: #56b6c2; }
+  .error { background-color: #4e2a2a; color: #e06c75; }
+  .no-tasks, .no-data { background-color: #5c4a2a; color: #d19a66; }
+
+  .search-section {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #3a3f4a; /* Distinct background for search area */
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center; /* Center items */
+    align-items: center; /* Align items vertically */
+    gap: 10px; /* Space between elements */
+  }
+  .search-section input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #282c34; /* Input background */
+    color: #abb2bf; /* Input text color */
+    font-size: 1rem;
+    flex-grow: 1; /* Allow input to grow */
+    max-width: 350px; /* Limit input width */
+  }
+  .search-section button {
+    padding: 8px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #61afef; /* Search button color */
+    color: #282c34;
+    transition: background-color 0.3s ease;
+  }
+  .search-section button:hover {
+    background-color: #5390ce; /* Darker blue on hover */
+  }
+  .search-result {
+    margin-top: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    width: 100%; /* Take full width below input/button */
+  }
+  .search-result.success {
+    background-color: #49515a;
+    color: #98c379;
+  }
+  .search-result.not-found {
+    background-color: #4e2a2a;
+    color: #e06c75;
+  }
+
+
+  .controls {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .controls label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #abb2bf;
+  }
+  .controls select {
+    padding: 8px 12px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #3a3f4a;
+    color: #abb2bf;
+    min-width: 200px;
+    font-size: 1rem;
+  }
+
+  .task-navigation {
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #31363f;
+  }
+  .current-task-display {
+    font-size: 1.2em;
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #49515a;
+    border-radius: 5px;
+    color: #98c379;
+    word-wrap: break-word;
+  }
+  .button-group {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .button-group button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #56b6c2;
+    color: #282c34;
+    transition: background-color 0.3s ease;
+  }
+  .button-group button:hover:not(:disabled) {
+    background-color: #4a9ca6;
+  }
+  .button-group button:disabled {
+    background-color: #3e4451;
+    color: #7f848e;
+    cursor: not-allowed;
+  }
+
+
+
+  .grids-section {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #31363f; /* Slightly lighter dark background for this section */
+    color: #abb2bf;
+  }
+  
+  .grids-section h3, .grids-section h4 {
+    color: #61afef; /* Heading color */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .train-grids, .test-grids {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+  }
+  
+  .grid-example {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background-color: #3a3f4a; /* Background for each example pair */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background-color:#111111;
+  }
+  
+  .grid-example h5 {
+    color: #c678dd; /* A purple for example titles */
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top:0px;
+  }
+  
+  .grid-pair {
+    display: flex;
+    flex-wrap: wrap; /* Allow grids to wrap on smaller screens */
+    justify-content: center;
+    gap: 20px; /* Space between input and output grids */
+    overflow-x:auto;
+    max-width:700px;
+    margin:0 auto;
+  }
+  
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the grid within its container */
+    margin-bottom: 10px;
+    flex:1;
+    width:48%;
+  }
+  
+  .grid-container h6 {
+    color: #98c379; /* Green for "Input" / "Output" labels */
+    margin-bottom: 10px;
+    font-size: 1.1em;
+  }
+  
+  .grid {
+    display: grid;
+    border: 3px solid #555555; /* Grid border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    background-color: #555555; /* Darker background for the grid itself */
+    gap:3px;
+    width: 96%; 
+  }
+  
+  .grid-cell {
+    aspect-ratio: 1 / 1;
+  }
+
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin-top:0px;
+}
+  /* Color Strategy for Grid Cells (0-9) */
+  /* These colors are based on common ARC-AGI visualizations */
+  .cell-0 { background-color: #000000; } /* Dark background / black */
+  .cell-1 { background-color: #1E93FF; } /* Blue */
+  .cell-2 { background-color: #F93C31; } /* Red */
+  .cell-3 { background-color: #4FCC30; } /* Green */
+  .cell-4 { background-color: #FFDC00; } /* Yellow */
+  .cell-5 { background-color: #999999; } /* Purple */
+  .cell-6 { background-color: #F012BE; } /* Cyan */
+  .cell-7 { background-color: #FF851B; } /* Grey / White (default text color) */
+  .cell-8 { background-color: #87D8F1; } /* Orange */
+  .cell-9 { background-color: #921231; } /* Light Grey (distinct from 7 if needed) */
