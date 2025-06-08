@@ -14,11 +14,11 @@ java -jar arc-agi-backend/target/arc-agi-backend-1.0.0.jar --app.cors.allowedOri
 ```
 ## Angular Frontend
 
-### Configure API URL (for Development):
+### Configure API URL:
 Open src/environments/environment.development.ts (for Angular v15+ projects) or src/environments/environment.ts (for older Angular versions) and ensure apiUrl points to your running backend:
 
 ```typescript
-// src/environments/environment.development.ts
+// src/environments/environment.ts
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:8080/api/', // Make sure this matches your backend's running port
