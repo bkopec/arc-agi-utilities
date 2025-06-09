@@ -23,6 +23,9 @@ export class TaskViewer implements OnInit {
   isLoading: boolean = true;
   error: string | null = null;
 
+  searchSuccess: boolean = false;
+  searchFailed: boolean = false; 
+
   searchTerm: string = ''; 
   searchResult: string | null = null; 
 
@@ -82,7 +85,7 @@ export class TaskViewer implements OnInit {
 
           this.currentSetName = setName;
           this.currentIndexMap.set(setName, index);
-          this.searchResult = `Found '${searchFileName}' in set '${setName}'. Displaying now.`;
+          this.searchResult = `Found '${searchFileName}' in set '${setName}'.`;
           found = true;
           break;
         }
@@ -91,8 +94,12 @@ export class TaskViewer implements OnInit {
 
     if (found) {
       this.updateCurrentTask();
+      this.searchSuccess = true;
+      this.searchFailed = false;
     } else {
       this.searchResult = `Task not found: '${searchFileName}' in any dataset.`;
+      this.searchSuccess = false;
+      this.searchFailed = true;
     }
     this.cdr.detectChanges();
   }
@@ -101,6 +108,9 @@ export class TaskViewer implements OnInit {
   updateCurrentTask(): void {
     const tasks = this.taskSets[this.currentSetName];
     const currentIndex = this.currentIndexMap.get(this.currentSetName) || 0;
+
+    this.searchSuccess = false;
+    this.searchFailed = false;
 
     if (tasks && tasks.length > 0 && currentIndex >= 0 && currentIndex < tasks.length) {
       this.currentTask = tasks[currentIndex];

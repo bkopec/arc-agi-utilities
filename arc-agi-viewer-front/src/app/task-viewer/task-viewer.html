@@ -2,7 +2,7 @@
     <h1>ARC-AGI Task Viewer</h1>
 
     <div class="search-section">
-      <input type="text" [(ngModel)]="searchTerm" placeholder="Enter Task ID (e.g., 007bbfb7.json)" />
+      <input type="text" [class.search-success]="searchSuccess"  [class.search-failure]="searchFailed" [(ngModel)]="searchTerm" placeholder="Enter Task ID (e.g., 007bbfb7.json)" />
       <button (click)="searchTask()">Search</button>
     </div>
 
