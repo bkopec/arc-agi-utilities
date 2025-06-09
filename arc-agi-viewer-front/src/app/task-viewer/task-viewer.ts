@@ -109,8 +109,8 @@ export class TaskViewer implements OnInit {
     const tasks = this.taskSets[this.currentSetName];
     const currentIndex = this.currentIndexMap.get(this.currentSetName) || 0;
 
-    this.searchSuccess = false;
-    this.searchFailed = false;
+    //this.searchSuccess = false;
+    //this.searchFailed = false;
 
     if (tasks && tasks.length > 0 && currentIndex >= 0 && currentIndex < tasks.length) {
       this.currentTask = tasks[currentIndex];
