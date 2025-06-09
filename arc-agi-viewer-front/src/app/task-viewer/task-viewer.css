@@ -232,9 +232,10 @@
   .cell-8 { background-color: #87D8F1; }
   .cell-9 { background-color: #921231; }
 
-  .search-success {
+  
+  .search-section input.search-success {
     border: 2px solid #98c379;
   }
-  .search-failure {
+  .search-section input.search-failure { 
     border: 2px solid #e06c75;
   }
