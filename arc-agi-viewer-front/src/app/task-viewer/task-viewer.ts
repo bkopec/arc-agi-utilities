@@ -67,6 +67,10 @@ export class TaskViewer implements OnInit {
     this.searchResult = null; 
     const term = this.searchTerm.trim();
 
+    this.searchSuccess = false;
+    this.searchFailed = false;
+    this.cdr.detectChanges();
+    
     if (!term) {
       this.searchResult = "Please enter a task ID to search.";
       this.cdr.detectChanges();
